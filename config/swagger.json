@@ -1,0 +1,1048 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Yet Another Node.js Blogg Application API",
+    "description": "Yet Another Node.js Blogg Application API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "",
+  "tags": [
+    {
+      "name": "Users",
+      "description": "API for users in the system"
+    },
+    {
+      "name": "Sellers",
+      "description": "API for sellers in the system"
+    },
+    {
+      "name": "Subcategories",
+      "description": "API for subcategories in the system"
+    },
+    {
+      "name": "Products",
+      "description": "API for products in the system"
+    },
+    {
+      "name": "Commandes",
+      "description": "API for commandes in the system"
+    },
+    {
+      "name": "Categories",
+      "description": "API for categories in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/users/addUser": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Create new user in system",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User that we want to create",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New user is created",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/users/getUser":{
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all users in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        }
+      }
+
+    },
+    "/users/getUserById/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of user that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get user with given ID",
+        "responses": {
+          "200": {
+            "description": "User is found",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/users/deleteUserById/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of user that we want to find",
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "summary": "Delete user with given ID",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "User is deleted",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/users/updateUserById/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of user that we want to find",
+          "type": "string"
+        }
+      ],
+      "put": {
+        "summary": "Update user with give ID",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User is updated",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/subcategorie/addsubcategorie": {
+      "post": {
+        "tags": [
+          "Subcategories"
+        ],
+        "description": "Create new subcategorie in system",
+        "parameters": [
+          {
+            "name": "subcategorie",
+            "in": "body",
+            "description": "subcategorie that we want to create",
+            "schema": {
+              "$ref": "#/definitions/subcategorie"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New subcategorie is created",
+            "schema": {
+              "$ref": "#/definitions/subcategorie"
+            }
+          }
+        }
+      }
+    },
+    "/subcategorie/findsubcategorie":{
+      "get": {
+        "tags": [
+          "Subcategories"
+        ],
+        "summary": "Get all subcategorie in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/subcategorie"
+            }
+          }
+        }
+      }
+
+    },
+    "/subcategorie/findsubcategoriebyid/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of subcategorie that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Subcategories"
+        ],
+        "summary": "Get subcategorie with given ID",
+        "responses": {
+          "200": {
+            "description": "subcategorieis found",
+            "schema": {
+              "$ref": "#/definitions/subcategorie"
+            }
+          }
+        }
+      }
+    },
+    "/subcategorie/deletesubcategorie/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of subcategorie that we want to find",
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "summary": "Delete subcategorie with given ID",
+        "tags": [
+          "Subcategories"
+        ],
+        "responses": {
+          "200": {
+            "description": "subcategorie is deleted",
+            "schema": {
+              "$ref": "#/definitions/subcategorie"
+            }
+          }
+        }
+      }
+    },
+    "/subcategorie/updatesubcategorie/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of subcategorie that we want to find",
+          "type": "string"
+        }
+      ],
+      "put": {
+        "summary": "Update subcategorie with give ID",
+        "tags": [
+          "Subcategories"
+        ],
+        "parameters": [
+          {
+            "name": "subcategorie",
+            "in": "body",
+            "description": "subcategorie with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/subcategorie"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "subcategorie is updated",
+            "schema": {
+              "$ref": "#/definitions/subcategorie"
+            }
+          }
+        }
+      }
+    },
+    "/seller/addseller": {
+      "post": {
+        "tags": [
+          "Sellers"
+        ],
+        "description": "Create new seller in system",
+        "parameters": [
+          {
+            "name": "seller",
+            "in": "body",
+            "description": "seller that we want to create",
+            "schema": {
+              "$ref": "#/definitions/seller"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New seller is created",
+            "schema": {
+              "$ref": "#/definitions/seller"
+            }
+          }
+        }
+      }
+    },
+    "/seller/getseller":{
+      "get": {
+        "tags": [
+          "Sellers"
+        ],
+        "summary": "Get all seller in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/seller"
+            }
+          }
+        }
+      }
+
+    },
+    "/seller/getsellerById/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of seller that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Sellers"
+        ],
+        "summary": "Get seller with given ID",
+        "responses": {
+          "200": {
+            "description": "seller is found",
+            "schema": {
+              "$ref": "#/definitions/seller"
+            }
+          }
+        }
+      }
+    },
+    "/seller/deleteseller/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of seller that we want to find",
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "summary": "Delete seller with given ID",
+        "tags": [
+          "Sellers"
+        ],
+        "responses": {
+          "200": {
+            "description": "seller is deleted",
+            "schema": {
+              "$ref": "#/definitions/seller"
+            }
+          }
+        }
+      }
+    },
+    "/seller/updateseller/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of seller that we want to find",
+          "type": "string"
+        }
+      ],
+      "put": {
+        "summary": "Update seller with give ID",
+        "tags": [
+          "Sellers"
+        ],
+        "parameters": [
+          {
+            "name": "seller",
+            "in": "body",
+            "description": "seller with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/seller"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "seller is updated",
+            "schema": {
+              "$ref": "#/definitions/seller"
+            }
+          }
+        }
+      }
+    },
+    "/product/addproduct": {
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Create new product in system",
+        "parameters": [
+          {
+              "name": "name",
+              "in": "formData",
+              "required": true,
+              "description": "User that we want to create",
+              "type": "string"
+          },
+          {
+              "name": "price",
+              "in": "formData",
+              "required": true,
+              "description": "User that we want to create",
+              "type": "string"
+          },
+          {
+              "name": "description",
+              "in": "formData",
+              "required": true,
+              "description": "User that we want to create",
+              "type": "string"
+          },
+          {
+              "name": "image",
+              "in": "formData",
+              "required": true,
+              "description": "image of User ",
+              "type": "file",
+              "items":{
+                  "name":"image",
+                  "type":"file",
+                  "in":"formData",
+                  "required": true,
+                  "description": "User that we want to find"
+              }
+          }
+      ],
+      "produces": [
+          "multipart/form-data"
+      ],
+
+        "responses": {
+          "200": {
+            "description": "New product is created",
+            "schema": {
+              "$ref": "#/definitions/product"
+            }
+          }
+        }
+      }
+    },
+    "/product/findallproduct":{
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Get all product in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/product"
+            }
+          }
+        }
+      }
+
+    },
+    "/product/findproductbyid/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of product that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Get product with given ID",
+        "responses": {
+          "200": {
+            "description": "product is found",
+            "schema": {
+              "$ref": "#/definitions/product"
+            }
+          }
+        }
+      }
+    },
+    "/product/deleteproductById/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of product that we want to find",
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "summary": "Delete product with given ID",
+        "tags": [
+          "Products"
+        ],
+        "responses": {
+          "200": {
+            "description": "product is deleted",
+            "schema": {
+              "$ref": "#/definitions/product"
+            }
+          }
+        }
+      }
+    },
+    "/product/update/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of commande that we want to find",
+          "type": "string"
+        }
+      ],
+      "put": {
+        "summary": "Update commande with give ID",
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "product",
+            "in": "body",
+            "description": "commande with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "commande is updated",
+            "schema": {
+              "$ref": "#/definitions/commande"
+            }
+          }
+        }
+      }
+    },
+    "/commande/addcommande": {
+      "post": {
+        "tags": [
+          "Commandes"
+        ],
+        "description": "Create new commande in system",
+        "parameters": [
+          {
+            "name": "commande",
+            "in": "body",
+            "description": "commande that we want to create",
+            "schema": {
+              "$ref": "#/definitions/commande"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New commande is created",
+            "schema": {
+              "$ref": "#/definitions/commande"
+            }
+          }
+        }
+      }
+    },
+    "/commande/getcommande":{
+      "get": {
+        "tags": [
+          "Commandes"
+        ],
+        "summary": "Get all commande in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/commande"
+            }
+          }
+        }
+      }
+
+    },
+    "/commande/getcommandeById/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of commande that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Commandes"
+        ],
+        "summary": "Get commande with given ID",
+        "responses": {
+          "200": {
+            "description": "commande is found",
+            "schema": {
+              "$ref": "#/definitions/commande"
+            }
+          }
+        }
+      }
+    },
+    "/commande/deletecommande/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of commande that we want to find",
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "summary": "Delete commande with given ID",
+        "tags": [
+          "Commandes"
+        ],
+        "responses": {
+          "200": {
+            "description": "commande is deleted",
+            "schema": {
+              "$ref": "#/definitions/commande"
+            }
+          }
+        }
+      }
+    },
+    "/commande/updatecommande/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of commande that we want to find",
+          "type": "string"
+        }
+      ],
+      "put": {
+        "summary": "Update commande with give ID",
+        "tags": [
+          "Commandes"
+        ],
+        "parameters": [
+          {
+            "name": "commande",
+            "in": "body",
+            "description": "commande with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/commande"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "product is updated",
+            "schema": {
+              "$ref": "#/definitions/commande"
+            }
+          }
+        }
+      }
+    },
+    "/categorie/addcategorie": {
+      "post": {
+        "tags": [
+          "Categories"
+        ],
+        "description": "Create new categorie in system",
+        "parameters": [
+          {
+            "name": "categorie",
+            "in": "body",
+            "description": "categorie that we want to create",
+            "schema": {
+              "$ref": "#/definitions/categorie"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New categorie is created",
+            "schema": {
+              "$ref": "#/definitions/categorie"
+            }
+          }
+        }
+      }
+    },
+    "/categorie/allcategorie":{
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "Get all categorie in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/categorie"
+            }
+          }
+        }
+      }
+
+    },
+    "/categorie/getcategoriebyid/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of categorie that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "Get categorie with given ID",
+        "responses": {
+          "200": {
+            "description": "categorie is found",
+            "schema": {
+              "$ref": "#/definitions/categorie"
+            }
+          }
+        }
+      }
+    },
+    "/categorie/deletecategorie/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of categorie that we want to find",
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "summary": "Delete categorie with given ID",
+        "tags": [
+          "Categories"
+        ],
+        "responses": {
+          "200": {
+            "description": "categorie is deleted",
+            "schema": {
+              "$ref": "#/definitions/categorie"
+            }
+          }
+        }
+      }
+    },
+    "/categorie/updatecategorie/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of categorie that we want to find",
+          "type": "string"
+        }
+      ],
+      "put": {
+        "summary": "Update categorie with give ID",
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [
+          {
+            "name": "categorie",
+            "in": "body",
+            "description": "categorie with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/categorie"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "product is updated",
+            "schema": {
+              "$ref": "#/definitions/categorie"
+            }
+          }
+        }
+      }
+    }},"definitions": {
+      "User": {
+        "discriminator": "seller",
+        "required": [
+          "nom",
+          "prenom",
+          "email",
+          "password"
+        ],
+        "properties": {
+          "nom": {
+            "type": "string"
+          },
+          "prenom": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "password": {
+            "type": "string"
+          },
+          "phone": {
+            "type":"number"
+          },
+          "commandes":{
+            "type": "array",
+            "items":{
+             "type":"string",
+           "x-swagger-mongoose":{
+            "$ref": "#/definitions/commande"
+           }
+        }}
+        }
+      },
+      "Users": {
+        "type": "array",
+        "$ref": "#/definitions/User"
+      },
+      "commande": {
+        "required": [
+          "name",
+          "adresse_cmd",
+          "montant_cmd"
+        ],
+        "properties": {
+          "id_cmd": {
+            "type": "string"
+          },
+          "adresse_cmd": {
+            "type": "string"
+          },
+          "montant_cmd": {
+            "type": "number"
+          },
+          "produit":{
+            "type": "array",
+            "items":{
+             "type":"string",
+           "x-swagger-mongoose":{
+            "$ref": "#/definitions/product"
+           }
+            }
+        }},
+        "user":{
+          "type": "object",
+          "items":{
+           "type":"string",
+         "x-swagger-mongoose":{
+          "$ref": "#/definitions/User"
+         }
+      }}
+      },
+      "cmd": {
+        "type": "array",
+        "$ref": "#/definitions/commande"
+      },
+      "categorie": {
+        "required": [
+          "name_categorie",
+          "id_categorie"
+        ],
+        "properties": {
+          "name_categorie": {
+            "type": "string"
+          },
+          "id_categorie": {
+            "type": "string"
+          },
+          "subcategorie":{
+            "type":"array",
+            "items":{
+              "type":"string",
+            "x-swagger-mongoose":{
+            "$ref": "#/definitions/subcategorie"
+          }}
+            }
+        }
+      },
+      "cat": {
+        "type": "array",
+        "$ref": "#/definitions/categorie"
+      },
+      "subcategorie": {
+        "required": [
+          "id_sub"
+        ],
+        "properties": {
+          "id_sub": {
+            "type": "string"
+          },
+          "product":{
+            "type":"array",
+            "items":{
+              "type":"string",
+            "x-swagger-mongoose":{
+            "$ref": "#/definitions/product"
+          }}},
+          "categorie":{
+            "type":"object",
+            "items":{
+              "type":"string",
+            "x-swagger-mongoose":{
+            "$ref": "#/definitions/categorie"
+          }}}
+        }
+      },
+      "subcat": {
+        "type": "array",
+        "$ref": "#/definitions/subcategorie"
+      },
+      "product": {
+        "required": [
+          "name",
+          "price",
+          "description",
+          "image"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "description": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "commande":{
+            "type":"array",
+            "items":{
+              "type":"string",
+            "x-swagger-mongoose":{
+            "$ref": "#/definitions/commande"
+          }}},
+          "subcategorie":{
+            "type":"object",
+            "$ref": "#/definitions/subcategorie"
+          }
+        }
+      },
+      "products": {
+        "type": "array",
+        "$ref": "#/definitions/product"
+      },
+      "seller": {
+        "allOf":[{
+          "$ref": "#/definitions/User" ,
+        "properties": {
+          "cin": {
+            "type": "number",
+            "uniqueItems": true
+          }
+        }
+      }]
+      },
+      "sellers": {
+        "type": "array",
+        "$ref": "#/definitions/seller"
+      }
+    }
+  }
